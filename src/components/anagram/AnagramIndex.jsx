@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useState } from 'react'
 import { UserContext } from '../UserContext';
 import axios from 'axios';
+import { CONFIG } from '../../config';
 
 export const AnagramIndex = () => {
     const [anagrams, setAnagrams] = useState([]);
@@ -21,7 +22,7 @@ export const AnagramIndex = () => {
                 headers: { Authorization: `Bearer ${user.token}` }
             }
 
-            const res = await axios.post("http://localhost/api/v1/anagram", { word: searchWord }, config);
+            const res = await axios.post(CONFIG.ANAGRAM_ENDPOINT, { word: searchWord }, config);
 
             if(res.data.status === 200) {
                 setAnagrams(res.data.data);

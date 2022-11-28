@@ -1,8 +1,9 @@
 import axios from "axios";
+import { CONFIG } from "../../config";
 
 export const Login = async(details) => {
     try {
-        const res = await axios.post("http://localhost/api/v1/login", { email: details.email, password: details.password });
+        const res = await axios.post(CONFIG.LOGIN_ENDPOINT, { email: details.email, password: details.password });
 
         if(res.status === 200 && res.data.token){
             return {

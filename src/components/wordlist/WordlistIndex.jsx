@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext, useRef } from 'react';
 import axios from 'axios';
 import { UserContext } from '../UserContext';
+import { CONFIG } from '../../config';
 
 export const WordlistIndex = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -20,7 +21,7 @@ export const WordlistIndex = () => {
         }
 
         const getWordList = async() => {
-            const res = await axios.get("http://localhost/api/v1/wordlist", config);
+            const res = await axios.get(CONFIG.WORDLIST_ENDPOINT, config);
             if (res.status === 200) {
                 setWordList(res.data);
             }
@@ -48,7 +49,7 @@ export const WordlistIndex = () => {
         }
 
         try {
-            const res = await axios.post("http://localhost/api/v1/wordlist", { "url": url }, config);
+            const res = await axios.post(CONFIG.WORDLIST_ENDPOINT, {"url": url}, config);
 
             if(res.status === 200){
                 setCurrentPage(parseInt(res.current_page));
