@@ -15,7 +15,6 @@ export const WordlistIndex = () => {
         }
 
         const config = {
-            // TODO: don't use hardcoded token please :)
             headers: { Authorization: `Bearer ${user.token}` },
             params: { page: currentPage }
         }
@@ -61,7 +60,6 @@ export const WordlistIndex = () => {
 
     return (
         <div>
-            { user.username ? user.username : '' }
             <form ref={urlInputRef} onSubmit={handleUrlInput}>
                 <div class="mb-6">
                     <label for="url" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">url for file import:</label>

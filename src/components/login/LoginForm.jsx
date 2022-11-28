@@ -9,7 +9,6 @@ export const LoginForm = () => {
     const submitHandler = async(e) => {
         e.preventDefault();
 
-        // TODO: some input checks and validation please.
         const details = {
             'email': formRef.current.elements.email.value,
             'password': formRef.current.elements.password.value
